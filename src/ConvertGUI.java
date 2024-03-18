@@ -17,21 +17,40 @@ public class ConvertGUI extends JFrame {
     }
 
     private void addGuiComponents() {
-        //Input Fields
-        JTextField inputTextField1 = new JTextField();
-        JTextField inputTextField2 = new JTextField();
 
         // Calcula a posição para centralizá-los na tela
         int x = (getWidth() - 200) / 2; // Centraliza na horizontal
         int y = 20; // Posição vertical inicial
 
+        int xBtn = (getWidth() - 100)/2;
+
+
+        //Input Fields
+        JTextField inputTextField1 = new JTextField();
+
         inputTextField1.setBounds(x, y, 200, 45);
-        inputTextField2.setBounds(x, y + 60, 200, 45); // Adiciona um pequeno espaço entre eles
-
-        inputTextField1.setFont(new Font("Dialog", Font.PLAIN, 24));
-        inputTextField2.setFont(new Font("Dialog", Font.PLAIN, 24));
-
+        inputTextField1.setFont(new Font("Dialog", Font.PLAIN, 19));
         add(inputTextField1);
-        add(inputTextField2);
+
+        //Opções para o input
+        String[] currency = {"USD","EUR","GBP","JPY"};
+
+        JComboBox<String> inBox = new JComboBox<>(currency);
+        inBox.setBounds(x + 10,y+60,70,30);
+        inBox.setFont(new Font("Dialog", Font.PLAIN, 15));
+
+        JComboBox<String> outBox = new JComboBox<>(currency);
+        outBox.setBounds(x+115, y+60,70,30);
+        outBox.setFont(new Font("Dialog", Font.PLAIN, 15));
+
+        add(inBox);
+        add(outBox);
+
+        //botões
+        JButton convertBTN = new JButton("Convert");
+        convertBTN.setFont(new Font("Dialog", Font.PLAIN, 16));
+        convertBTN.setBounds(xBtn,y+120,100,45);
+
+        add(convertBTN);
     }
 }
