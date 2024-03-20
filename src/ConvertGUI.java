@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ConvertGUI extends JFrame {
     public ConvertGUI() {
@@ -30,6 +32,7 @@ public class ConvertGUI extends JFrame {
 
         inputTextField1.setBounds(x, y, 200, 45);
         inputTextField1.setFont(new Font("Dialog", Font.PLAIN, 19));
+
         add(inputTextField1);
 
         //Opções para o input
@@ -50,6 +53,16 @@ public class ConvertGUI extends JFrame {
         JButton convertBTN = new JButton("Convert");
         convertBTN.setFont(new Font("Dialog", Font.PLAIN, 16));
         convertBTN.setBounds(xBtn,y+120,100,45);
+
+        //pegando os valores
+        convertBTN.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String inputValue = inputTextField1.getText();
+                String inCurrency = (String) inBox.getSelectedItem();
+                String outCurrency = (String) outBox.getSelectedItem();
+            }
+        });
 
         add(convertBTN);
     }
